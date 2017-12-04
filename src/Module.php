@@ -2,6 +2,7 @@
 namespace LeoGalleguillos\Flash;
 
 use LeoGalleguillos\Flash\Model\Service\Flash as FlashService;
+use Zend\Mvc\MvcEvent;
 
 class Module
 {
