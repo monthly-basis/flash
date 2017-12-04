@@ -15,4 +15,9 @@ class Module
             ],
         ];
     }
+
+    public function onBootstrap(MvcEvent $mvcEvent)
+    {
+        session_start();
+    }
 }
