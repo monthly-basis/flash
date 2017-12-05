@@ -3,38 +3,36 @@ namespace LeoGalleguillos\Flash\Model\Service;
 
 class Flash
 {
-    private $message  = '';
-    private $messages = [];
-
     public function __construct()
     {
-        $this->message  = $_SESSION['flash']['message'];
-        $this->messages = $_SESSION['flash']['messages'];
+        $_SESSION['flash']             = [];
+        $_SESSION['flash']['message']  = '';
+        $_SESSION['flash']['messages'] = [];
     }
 
     public function clear()
     {
-        $this->message  = '';
-        $this->messages = [];
+        $_SESSION['flash']['message'] = '';
+        $_SESSION['flash']['messages'] = [];
     }
 
-    public function getMessage()
+    public function getMessage() : string
     {
-        return $this->message;
+        return $_SESSION['flash']['message'];
     }
 
-    public function getMessages()
+    public function getMessages() : array
     {
-        return $this->messages;
+        return $_SESSION['flash']['messages'];
     }
 
     public function setMessage(string $message)
     {
-        $this->message = $message;
+        $_SESSION['flash']['message'] = $message;
     }
 
     public function setMessages(array $messages)
     {
-        $this->messages = $messages;
+        $_SESSION['flash']['messages'] = $messages;
     }
 }
