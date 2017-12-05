@@ -3,13 +3,6 @@ namespace LeoGalleguillos\Flash\Model\Service;
 
 class Flash
 {
-    public function __construct()
-    {
-        $_SESSION['flash']             = [];
-        $_SESSION['flash']['message']  = '';
-        $_SESSION['flash']['messages'] = [];
-    }
-
     public function clear()
     {
         $_SESSION['flash']['message'] = '';
