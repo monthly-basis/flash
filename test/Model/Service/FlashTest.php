@@ -11,37 +11,31 @@ class FlashTest extends TestCase
         $this->flashService = new FlashService();
     }
 
-    public function testInitialize()
+    public function testInstance()
     {
         $this->assertInstanceOf(FlashService::class, $this->flashService);
     }
 
-    public function testClear()
+    public function testDestruct()
     {
-        $this->flashService->clear();
-        $this->assertEmpty(
-            $this->flashService->getMessage()
-        );
-        $this->assertEmpty(
-            $this->flashService->getMessages()
-        );
+        $flashService1 = new FlashService();
+        $flashService1->setMessage('a');
+        $this->assertSame('a', $flashService1->getMessage());
+        unset($flashService1);
 
-        $message = 'today is an amazing day';
-        $this->flashService->setMessage($message);
+        $flashService2 = new FlashService();
+        $flashService2->setMessages(['a', 'b', 'c']);
+        $this->assertSame('a', $flashService2->getMessage());
+        unset($flashService2);
 
-        $messages = [
-            'today is an amazing day',
-            'and we are going to celebrate',
-        ];
-        $this->flashService->setMessages($messages);
+        $flashService3 = new FlashService();
+        $this->assertEmpty($flashService3->getMessage());
+        $this->assertSame(['a', 'b', 'c'], $flashService3->getMessages());
+        unset($flashService3);
 
-        $this->flashService->clear();
-        $this->assertEmpty(
-            $this->flashService->getMessage()
-        );
-        $this->assertEmpty(
-            $this->flashService->getMessages()
-        );
+        $flashService4 = new FlashService();
+        $this->assertEmpty($flashService4->getMessage());
+        $this->assertEmpty($flashService4->getMessages());
     }
 
     public function testSetAndGetMessage()

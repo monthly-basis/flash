@@ -3,10 +3,18 @@ namespace LeoGalleguillos\Flash\Model\Service;
 
 class Flash
 {
-    public function clear()
+    private $messageWasSet   = false;
+    private $messagesWereSet = false;
+
+    public function __destruct()
     {
-        $_SESSION['flash']['message'] = '';
-        $_SESSION['flash']['messages'] = [];
+        if (!$this->messageWasSet) {
+            $_SESSION['flash']['message'] = '';
+        }
+
+        if (!$this->messagesWereSet) {
+            $_SESSION['flash']['messages'] = [];
+        }
     }
 
     public function getMessage() : string
@@ -21,11 +29,13 @@ class Flash
 
     public function setMessage(string $message)
     {
+        $this->messageWasSet          = true;
         $_SESSION['flash']['message'] = $message;
     }
 
     public function setMessages(array $messages)
     {
+        $this->messagesWereSet         = true;
         $_SESSION['flash']['messages'] = $messages;
     }
 }
