@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Flash;
+namespace LeoGalleguillos\FlashTest;
 
 use LeoGalleguillos\Flash\Module;
 use PHPUnit\Framework\TestCase;

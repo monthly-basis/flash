@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Flash\Model\Service;
+namespace LeoGalleguillos\FlashTest\Model\Service;
 
 use LeoGalleguillos\Flash\Model\Service\Flash as FlashService;
 use PHPUnit\Framework\TestCase;
