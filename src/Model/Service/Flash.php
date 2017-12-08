@@ -19,12 +19,12 @@ class Flash
 
     public function getMessage() : string
     {
-        return $_SESSION['flash']['message'];
+        return $_SESSION['flash']['message'] ?? '';
     }
 
     public function getMessages() : array
     {
-        return $_SESSION['flash']['messages'];
+        return $_SESSION['flash']['messages'] ?? [];
     }
 
     public function setMessage(string $message)
