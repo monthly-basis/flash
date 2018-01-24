@@ -6,6 +6,13 @@ use Zend\Mvc\MvcEvent;
 
 class Module
 {
+    public function getConfig()
+    {
+        return [
+
+        ];
+    }
+
     public function getServiceConfig()
     {
         return [
@@ -15,10 +22,5 @@ class Module
                 },
             ],
         ];
-    }
-
-    public function onBootstrap(MvcEvent $mvcEvent)
-    {
-        session_start();
     }
 }
