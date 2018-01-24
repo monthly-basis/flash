@@ -3,39 +3,33 @@ namespace LeoGalleguillos\Flash\Model\Service;
 
 class Flash
 {
-    private $messageWasSet   = false;
-    private $messagesWereSet = false;
+    private $setKeys = [];
+
+    public function __construct()
+    {
+        if (!isset($_SESSION)) {
+            $_SESSION = [];
+            $_SESSION['flash'] = [];
+        }
+    }
 
     public function __destruct()
     {
-        if (!$this->messageWasSet) {
-            $_SESSION['flash']['message'] = '';
-        }
-
-        if (!$this->messagesWereSet) {
-            $_SESSION['flash']['messages'] = [];
+        foreach (array_keys($_SESSION['flash']) as $key) {
+            if (!in_array($key, $this->setKeys)) {
+                unset($_SESSION['flash'][$key]);
+            }
         }
     }
 
-    public function getMessage() : string
+    public function get(string $key)
     {
-        return $_SESSION['flash']['message'] ?? '';
+        return $_SESSION['flash'][$key] ?? null;
     }
 
-    public function getMessages() : array
+    public function set(string $key, $value)
     {
-        return $_SESSION['flash']['messages'] ?? [];
-    }
-
-    public function setMessage(string $message)
-    {
-        $this->messageWasSet          = true;
-        $_SESSION['flash']['message'] = $message;
-    }
-
-    public function setMessages(array $messages)
-    {
-        $this->messagesWereSet         = true;
-        $_SESSION['flash']['messages'] = $messages;
+        $this->setKeys[]         = $key;
+        $_SESSION['flash'][$key] = $value;
     }
 }

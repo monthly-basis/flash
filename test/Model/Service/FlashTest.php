@@ -19,59 +19,36 @@ class FlashTest extends TestCase
     public function testDestruct()
     {
         $flashService1 = new FlashService();
-        $flashService1->setMessage('a');
-        $this->assertSame('a', $flashService1->getMessage());
+        $flashService1->set('message', 'a');
+        $this->assertSame('a', $flashService1->get('message'));
         unset($flashService1);
 
         $flashService2 = new FlashService();
-        $flashService2->setMessages(['a', 'b', 'c']);
-        $this->assertSame('a', $flashService2->getMessage());
+        $this->assertSame('a', $flashService2->get('message'));
         unset($flashService2);
 
         $flashService3 = new FlashService();
-        $this->assertEmpty($flashService3->getMessage());
-        $this->assertSame(['a', 'b', 'c'], $flashService3->getMessages());
+        $this->assertEmpty($flashService3->get('message'));
         unset($flashService3);
 
         $flashService4 = new FlashService();
-        $this->assertEmpty($flashService4->getMessage());
-        $this->assertEmpty($flashService4->getMessages());
+        $this->assertEmpty($flashService4->get('message'));
     }
 
-    public function testSetAndGetMessage()
+    public function testSetAndGet()
     {
         $message = 'today is an amazing day';
-        $this->flashService->setMessage($message);
+        $this->flashService->set('message', $message);
         $this->assertSame(
             $message,
-            $this->flashService->getMessage()
+            $this->flashService->get('message')
         );
 
         $message = 12345;
-        $this->flashService->setMessage($message);
+        $this->flashService->set('message', $message);
         $this->assertSame(
-            (string) $message,
-            $this->flashService->getMessage()
-        );
-    }
-
-    public function testSetAndGetMessages()
-    {
-        $messages = [
-            'today is an amazing day',
-            'and we are going to celebrate',
-        ];
-        $this->flashService->setMessages($messages);
-        $this->assertSame(
-            $messages,
-            $this->flashService->getMessages()
-        );
-
-        $messages = [];
-        $this->flashService->setMessages($messages);
-        $this->assertSame(
-            $messages,
-            $this->flashService->getMessages()
+            $message,
+            $this->flashService->get('message')
         );
     }
 }
