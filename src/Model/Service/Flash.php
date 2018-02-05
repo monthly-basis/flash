@@ -1,14 +1,18 @@
 <?php
 namespace LeoGalleguillos\Flash\Model\Service;
 
+use LeoGalleguillos\Flash\Model\Service as FlashService;
+
 class Flash
 {
-    private $setKeys = [];
+    protected $setKeys = [];
 
     public function __construct()
     {
         if (!isset($_SESSION)) {
             $_SESSION = [];
+        }
+        if (!isset($_SESSION['flash'])) {
             $_SESSION['flash'] = [];
         }
     }
@@ -27,9 +31,10 @@ class Flash
         return $_SESSION['flash'][$key] ?? null;
     }
 
-    public function set(string $key, $value)
+    public function set(string $key, $value) : FlashService\Flash
     {
         $this->setKeys[]         = $key;
         $_SESSION['flash'][$key] = $value;
+        return $this;
     }
 }
