@@ -1,7 +1,8 @@
 <?php
 namespace LeoGalleguillos\Flash;
 
-use LeoGalleguillos\Flash\Model\Service\Flash as FlashService;
+use LeoGalleguillos\Flash\Model\Service as FlashService;
+use LeoGalleguillos\Flash\View\Helper as FlashHelper;
 use Zend\Mvc\MvcEvent;
 
 class Module
@@ -9,7 +10,18 @@ class Module
     public function getConfig()
     {
         return [
-
+            'view_helpers' => [
+                'aliases' => [
+                    'flash' => FlashHelper\Flash::class,
+                ],
+                'factories' => [
+                    FlashHelper\Flash::class => function ($serviceManager) {
+                        return new FlashHelper\Flash(
+                            $serviceManager->get(FlashService\Flash::class)
+                        );
+                    },
+                ],
+            ],
         ];
     }
 
@@ -17,8 +29,8 @@ class Module
     {
         return [
             'factories' => [
-                FlashService::class => function ($serviceManager) {
-                    return new FlashService();
+                FlashService\Flash::class => function ($serviceManager) {
+                    return new FlashService\Flash();
                 },
             ],
         ];
