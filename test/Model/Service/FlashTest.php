@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class FlashTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->flashService = new FlashService\Flash();
     }
