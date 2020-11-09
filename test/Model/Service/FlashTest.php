@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\FlashTest\Model\Service;
+namespace MonthlyBasis\FlashTest\Model\Service;
 
-use LeoGalleguillos\Flash\Model\Service as FlashService;
+use MonthlyBasis\Flash\Model\Service as FlashService;
 use PHPUnit\Framework\TestCase;
 
 class FlashTest extends TestCase

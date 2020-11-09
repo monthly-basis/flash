@@ -2,7 +2,7 @@
 
 return [
     'modules' => [
-        'LeoGalleguillos\Flash',
+        'MonthlyBasis\Flash',
         'Zend\Router',
     ],
     // These are various options for the listeners attached to the ModuleManager

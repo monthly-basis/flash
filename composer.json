@@ -1,13 +1,13 @@
 {
-    "name": "leo-galleguillos/flash",
+    "name": "monthly-basis/flash",
     "license": "MIT",
     "require": {
         "laminas/laminas-test": "^3.1"
     },
     "autoload": {
         "psr-4": {
-            "LeoGalleguillos\\Flash\\": "src/",
-            "LeoGalleguillos\\FlashTest\\": "test/"
+            "MonthlyBasis\\Flash\\": "src/",
+            "MonthlyBasis\\FlashTest\\": "test/"
         }
     }
 }

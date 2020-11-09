@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\Flash;
+namespace MonthlyBasis\Flash;
 
-use LeoGalleguillos\Flash\Model\Service as FlashService;
-use LeoGalleguillos\Flash\View\Helper as FlashHelper;
+use MonthlyBasis\Flash\Model\Service as FlashService;
+use MonthlyBasis\Flash\View\Helper as FlashHelper;
 use Zend\Mvc\MvcEvent;
 
 class Module

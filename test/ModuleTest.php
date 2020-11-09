@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\FlashTest;
+namespace MonthlyBasis\FlashTest;
 
-use LeoGalleguillos\Flash\Module;
+use MonthlyBasis\Flash\Module;
 use PHPUnit\Framework\TestCase;
 use Zend\Mvc\Application;
 
