@@ -31,7 +31,7 @@ class Flash
         return $_SESSION['flash'][$key] ?? null;
     }
 
-    public function set(string $key, $value) : FlashService\Flash
+    public function set(string $key, $value): FlashService\Flash
     {
         $this->setKeys[]         = $key;
         $_SESSION['flash'][$key] = $value;
