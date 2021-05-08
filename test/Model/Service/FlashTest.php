@@ -11,7 +11,7 @@ class FlashTest extends TestCase
         $this->flashService = new FlashService\Flash();
     }
 
-    public function testDestruct()
+    public function test___destruct()
     {
         $flashService1 = new FlashService\Flash();
         $flashService1->set('message', 'a');
@@ -27,7 +27,7 @@ class FlashTest extends TestCase
         unset($flashService3);
 
         $flashService4 = new FlashService\Flash();
-        $this->assertEmpty($flashService4->get('message'));
+        $this->assertNull($flashService4->get('message'));
     }
 
     public function testSetAndGet()
