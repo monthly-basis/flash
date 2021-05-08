@@ -1,8 +1,8 @@
 <?php
 namespace MonthlyBasis\Flash\View\Helper;
 
+use Laminas\View\Helper\AbstractHelper;
 use MonthlyBasis\Flash\Model\Service as FlashService;
-use Zend\View\Helper\AbstractHelper;
 
 class Flash extends AbstractHelper
 {

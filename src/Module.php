@@ -1,9 +1,9 @@
 <?php
 namespace MonthlyBasis\Flash;
 
+use Laminas\Mvc\MvcEvent;
 use MonthlyBasis\Flash\Model\Service as FlashService;
 use MonthlyBasis\Flash\View\Helper as FlashHelper;
-use Zend\Mvc\MvcEvent;
 
 class Module
 {

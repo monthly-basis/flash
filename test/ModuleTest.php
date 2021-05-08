@@ -1,9 +1,9 @@
 <?php
 namespace MonthlyBasis\FlashTest;
 
+use Laminas\Mvc\Application;
 use MonthlyBasis\Flash\Module;
 use PHPUnit\Framework\TestCase;
-use Zend\Mvc\Application;
 
 class ModuleTest extends TestCase
 {
