@@ -15,9 +15,9 @@ class Module
                     'flash' => FlashHelper\Flash::class,
                 ],
                 'factories' => [
-                    FlashHelper\Flash::class => function ($serviceManager) {
+                    FlashHelper\Flash::class => function ($sm) {
                         return new FlashHelper\Flash(
-                            $serviceManager->get(FlashService\Flash::class)
+                            $sm->get(FlashService\Flash::class)
                         );
                     },
                 ],
@@ -29,7 +29,7 @@ class Module
     {
         return [
             'factories' => [
-                FlashService\Flash::class => function ($serviceManager) {
+                FlashService\Flash::class => function ($sm) {
                     return new FlashService\Flash();
                 },
             ],
