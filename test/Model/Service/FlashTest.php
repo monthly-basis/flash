@@ -27,6 +27,26 @@ class FlashTest extends TestCase
         unset($flashService3);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function test___destruct_setSessionToEmptyArray_runsWithoutErrors()
+    {
+        $flashService = new FlashService\Flash();
+        $_SESSION = [];
+        unset($flashService);
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function test___destruct_unsetSession_runsWithoutErrors()
+    {
+        $flashService = new FlashService\Flash();
+        unset($_SESSION);
+        unset($flashService);
+    }
+
     public function test_setAndGet_expectedValues()
     {
         $message = 'today is an amazing day';
