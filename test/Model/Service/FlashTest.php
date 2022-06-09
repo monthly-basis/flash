@@ -11,7 +11,7 @@ class FlashTest extends TestCase
         $this->flashService = new FlashService\Flash();
     }
 
-    public function test___destruct()
+    public function test___destruct_instantiateAndUnsetInstances_expectedValues()
     {
         $flashService1 = new FlashService\Flash();
         $flashService1->set('message', 'a');
@@ -23,14 +23,11 @@ class FlashTest extends TestCase
         unset($flashService2);
 
         $flashService3 = new FlashService\Flash();
-        $this->assertEmpty($flashService3->get('message'));
+        $this->assertNull($flashService3->get('message'));
         unset($flashService3);
-
-        $flashService4 = new FlashService\Flash();
-        $this->assertNull($flashService4->get('message'));
     }
 
-    public function testSetAndGet()
+    public function test_setAndGet_expectedValues()
     {
         $message = 'today is an amazing day';
         $this->flashService->set('message', $message);
@@ -44,6 +41,10 @@ class FlashTest extends TestCase
         $this->assertSame(
             $message,
             $this->flashService->get('message')
+        );
+
+        $this->assertNull(
+            $this->flashService->get('nonexistent key')
         );
     }
 }
